@@ -128,7 +128,29 @@ def PC_1_change(bits):
     for i in data.PC1:
         # print(bits[i-1],i,sep = '-',end=' ')
         ip_str = ip_str + bits[i - 1]
+
     return ip_str
+
+#循环左移
+def key_leftshift(key_str,num):
+    '''
+    key_str : 置换PC-1后的28bit01字符串
+    return : 28bit01字符串左移num位后的结果
+    '''
+    left = key_str[num:28]
+    left += key_str[0:num]
+    return left
+
+#置换选择2
+def PC_2_change(key):
+    '''
+    key : 56bit移位后密钥01bit字符串
+    return : 密钥置换PC-2后48bit序列字符串
+    '''
+    pc_2 = ""
+    for i in data.PC2:
+        pc_2 = pc_2 + key[i-1]
+    return pc_2
 
 
 
