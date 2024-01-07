@@ -1,5 +1,33 @@
 import data
+import math
 
+# 读文件
+def read_file(filename):
+    try:
+        fp = open(filename,"r",encoding='utf-8')
+        message = fp.read()
+        fp.close()
+        return message
+    except:
+        print("Open file error!")
+
+def divide_message(message):
+    length = math.ceil(len(message)/8)
+    N = ["" for i in range(length)]
+    count = 0
+    j = 0
+    for i in range(len(message)):
+        if count!=8:
+            N[j] += char_to_binary(message[i])
+            count += 1
+        else:
+            j +=1
+            count=1
+            N[j] += char_to_binary(message[i])
+    if(length!= len(message)//8):
+        padded_string = N[j].ljust(64,'0')
+        N[-1] = padded_string
+    return N
 
 #将字符拆分成8位2进制数
 def char_to_binary(x):
@@ -28,7 +56,10 @@ def key_to_binary():
     #     key = input("秘钥是什么: ")
     #     if len(key)== data.len_key:
     #         break
-    key = '1100001111000011110000111100001111000011110000111100001111000011'
+    while True:
+        key = input("秘钥是什么：(8位) ")
+        if(len(key)==8):
+            break
     str = ''
     for x in key:
         str += char_to_binary(x)
@@ -208,5 +239,14 @@ def des_decrypt(key2,plaintext,test):
     text = P_right32_i+P_right32_i_1
 
     return key2,text
+
+def write_file(result_str):
+    try:
+        fp = open('text.txt','w',encoding='utf-8')
+        fp.write(result_str)
+        fp.close()
+    except:
+        print("Write file error!")
+
 
 
