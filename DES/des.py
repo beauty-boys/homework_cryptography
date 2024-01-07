@@ -28,7 +28,7 @@ def key_to_binary():
     #     key = input("秘钥是什么: ")
     #     if len(key)== data.len_key:
     #         break
-    key = 'aaaaaaaa'
+    key = '1100001111000011110000111100001111000011110000111100001111000011'
     str = ''
     for x in key:
         str += char_to_binary(x)
@@ -55,6 +55,17 @@ def IP_change(bits):
     '''
     ip_str = ""
     for i in data.IP:
+        ip_str = ip_str + bits[i - 1]
+    return ip_str
+
+# 逆IP置换
+def IP_INV_change(bits):
+    '''
+    bits:一组64位的01比特字符串
+    return：初始置换IP后64bit01序列
+    '''
+    ip_str = ""
+    for i in data.IP_INV:
         ip_str = ip_str + bits[i - 1]
     return ip_str
 
@@ -152,5 +163,50 @@ def PC_2_change(key):
         pc_2 = pc_2 + key[i-1]
     return pc_2
 
+
+def des_decrypt(key2,plaintext,test):
+
+    # des.key_leftshift(key2,data.Rotated_Bits(i))
+    # 左移
+    key2_left28 = key2[0:28]
+    key2_right28 = key2[28:]
+
+    # print(len(key2_left28),len(key2_right28))
+    key2_left28 = key_leftshift(key2_left28,data.Rotated_Bits[test])
+    key2_right28 = key_leftshift(key2_right28,data.Rotated_Bits[test])
+    key2 = key2_left28+key2_right28
+    # print(len(key2))
+    # 秘钥置换选择2
+    key_choice =PC_2_change(key2)
+    print(key_choice)
+
+    # print('IP置换',plaintext_change_ip,len(plaintext_change_ip))
+    #分成左右两部分 右侧移到下一论的左边 左侧进行F函数
+    P_left32_i = plaintext[0:32]
+    P_right32_i = plaintext[32:]
+
+    # print('左秘钥 右秘钥',P_left32_i,P_right32_i)
+
+    P_right48 = E_change(P_right32_i)
+    # print('秘钥扩展',P_right48,len(P_right48))
+
+    #少了一个xor/
+    P_right48 = xor(P_right48, key_choice)
+
+    P_S32 = S_change(P_right48)
+    # print('S_boxs',P_S32,len(P_S32))
+
+    #置换P
+    P_S32 = P_change(P_S32)
+    # print('P置换',P_S32, len(P_S32))
+
+    # print('',len(P_S32),len(P_left32_i))
+
+    P_right32_i_1 = xor(P_S32, P_left32_i)
+    # print('xor异或2',P_right32_i_1,len(P_right32_i_1))
+
+    text = P_right32_i+P_right32_i_1
+
+    return key2,text
 
 
