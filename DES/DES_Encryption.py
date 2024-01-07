@@ -10,6 +10,7 @@ def read_file(filename):
         return message
     except:
         print("Open file error!")
+        exit()
 
 def divide_message(message):
     length = math.ceil(len(message)/8)
