@@ -209,7 +209,7 @@ def des_decrypt(key2,plaintext,test):
     # print(len(key2))
     # 秘钥置换选择2
     key_choice =PC_2_change(key2)
-    print(key_choice)
+    # print(key_choice)
 
     # print('IP置换',plaintext_change_ip,len(plaintext_change_ip))
     #分成左右两部分 右侧移到下一论的左边 左侧进行F函数
@@ -247,6 +247,40 @@ def write_file(result_str):
         fp.close()
     except:
         print("Write file error!")
+
+def encryption():
+    # 读取加密的文件（只含有加密的信息）
+    filename = input("加密的文本内容在那个文件: ")
+    ### 转成二进制流
+    message = read_file(filename)
+    text_plain = divide_message(message)
+    # plaintext = "0110000101100001011000010110000101100001011000010110000101100001"#64位
+    #字符串转01的比特流 返回的key是秘钥
+    key = key_to_binary()
+
+    # key = '1100001111000011110000111100001111000011110000111100001111000011'
+    # key2 = des.PC_1_change(key)
+    result_str = ''
+    for plaintext in text_plain:
+        # 秘钥置换选择1
+        key2 = PC_1_change(key)
+
+        #IP置换
+        plaintext = IP_change(plaintext)
+
+        #循环16轮
+        for i in range(16):
+            key2,plaintext = des_decrypt(key2,plaintext,int(i))
+        #左右交换
+        plaintext = plaintext[32:]+plaintext[0:32]
+        #逆IP置换
+        plaintext = IP_INV_change(plaintext)
+        #01比特流转字符串
+        plaintext = binary_to_plaintext(plaintext)
+        result_str += plaintext
+        # print(plaintext)
+    print(result_str)
+    write_file(result_str)
 
 
 
