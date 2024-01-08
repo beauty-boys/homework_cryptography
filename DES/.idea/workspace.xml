@@ -5,9 +5,17 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="5345ac3b-e1c7-480d-9b39-b2e141ae5e3b" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/../.idea/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../.idea/final_homeworks.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../.idea/inspectionProfiles/profiles_settings.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../.idea/misc.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../.idea/modules.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../RSA/.idea/RSA.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../RSA/RSA_Decryption.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../RSA/RSA_Encryption.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../RSA/test.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/DES_Decryption.py" beforeDir="false" afterPath="$PROJECT_DIR$/DES_Decryption.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/message.txt" beforeDir="false" afterPath="$PROJECT_DIR$/message.txt" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -177,6 +185,7 @@
       <updated>1704282088158</updated>
       <workItem from="1704282089630" duration="12771000" />
       <workItem from="1704602796431" duration="10593000" />
+      <workItem from="1704677027181" duration="596000" />
     </task>
     <servers />
   </component>
