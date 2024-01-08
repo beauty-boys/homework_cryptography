@@ -1,5 +1,6 @@
 import data
 import math
+import time
 
 # 读文件
 def read_file(filename):
@@ -252,16 +253,22 @@ def write_file(result_str):
 def encryption():
     # 读取加密的文件（只含有加密的信息）
     filename = input("加密的文本内容在那个文件: ")
+    key = key_to_binary()
+    start_time = time.time()
+
     ### 转成二进制流
     message = read_file(filename)
+    print("文本的长度为：",len(message))
     text_plain = divide_message(message)
     # plaintext = "0110000101100001011000010110000101100001011000010110000101100001"#64位
     #字符串转01的比特流 返回的key是秘钥
-    key = key_to_binary()
+
 
     # key = '1100001111000011110000111100001111000011110000111100001111000011'
     # key2 = des.PC_1_change(key)
     result_str = ''
+
+
     for plaintext in text_plain:
         # 秘钥置换选择1
         key2 = PC_1_change(key)
@@ -282,6 +289,8 @@ def encryption():
         # print(plaintext)
     print(result_str)
     write_file(result_str)
+    end_time = time.time()
+    print("加密运行的时间是: ", end_time - start_time)
 
 
 

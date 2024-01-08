@@ -1,6 +1,6 @@
 import math
 import data
-
+import time
 
 def read_file(filename):
     try:
@@ -212,15 +212,21 @@ def write_file(result_str):
 def decryption():
     #密文获取
     filename = input("密文所在的文件位置： ")
-    ciphertext = read_file(filename)
-    # print(ciphertext)
     #秘钥获取
     key = key_to_binary()
+
+    start_time = time.time()
+
+    ciphertext = read_file(filename)
+    # print(ciphertext)
+    print("文本的长度为：",len(ciphertext))
+
     ##秘钥密文转01bit流
     # 消息拆分
-    plain_bit = divide_ciphertext(ciphertext)
+    plain_bit= divide_ciphertext(ciphertext)
     ## 子秘钥生成
     key_list = generate_key(key)
+
     result_str = ''
     for x in plain_bit:
         ##IP置换
@@ -240,4 +246,6 @@ def decryption():
     result_str = bit_str(result_str)
     write_file(result_str)
     print(result_str)
-    print(1)
+    end_time = time.time()
+    print("加密运行的时间是: ", end_time - start_time)
+    # print(1)
