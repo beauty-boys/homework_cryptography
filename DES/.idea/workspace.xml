@@ -6,11 +6,10 @@
   <component name="ChangeListManager">
     <list default="true" id="5345ac3b-e1c7-480d-9b39-b2e141ae5e3b" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/1.txt" beforeDir="false" afterPath="$PROJECT_DIR$/1.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/DES_Decryption.py" beforeDir="false" afterPath="$PROJECT_DIR$/DES_Decryption.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/DES_Encryption.py" beforeDir="false" afterPath="$PROJECT_DIR$/DES_Encryption.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/main.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/message.txt" beforeDir="false" afterPath="$PROJECT_DIR$/message.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../RSA/private_key.txt" beforeDir="false" afterPath="$PROJECT_DIR$/../RSA/private_key.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../RSA/public_key.txt" beforeDir="false" afterPath="$PROJECT_DIR$/../RSA/public_key.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../RSA/text.txt" beforeDir="false" afterPath="$PROJECT_DIR$/../RSA/text.txt" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
